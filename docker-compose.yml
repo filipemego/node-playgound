@@ -1,0 +1,29 @@
+version: '3'
+services:
+  node-playground:
+    build: .
+    working_dir: /home/node/app
+    ports:
+      - "80:80"
+      - "9229:9229"
+    volumes:
+      - ./src:/home/node/app
+      - /home/node/app/node_modules/
+    links:
+      - db-mysql
+    environment:
+      - NODE_ENV=development
+    entrypoint:
+      - /bin/ash
+      - -c
+      - "npm run start:dev"
+
+  db-mysql:
+    image: mysql:8.0.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=node-playground
+      - MYSQL_USER=node-playground
+      - MYSQL_PASSWORD=123546
+    ports:
+      - "3306:3306"

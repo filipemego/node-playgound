@@ -1,0 +1,19 @@
+{
+    "name": "node-fun",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js",
+        "start:dev": "nodemon --inspect=0.0.0.0 app.js"
+    },
+    "dependencies": {
+        "koa": "^2.4.1",
+        "koa-router": "^7.3.0",
+        "mysql2": "^1.5.1",
+        "sequelize": "^4.28.6"
+    },
+    "devDependencies": {
+        "eslint": "^4.13.1",
+        "nodemon": "^1.14.3"
+    }
+}
